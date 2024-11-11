@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>加载高德地图</title>
+<!-- 1. 新建容器，存放地图 -->
+ <style>
+html,
+body,
+#container{
+ width: 100%;
+ height: 100%;
+
+      }
+</style>
+<!-- 2. 添加高德API资源 -->
+<script type="text/javascript">
+     window._AMapSecurityConfig = {
+       securityJsCode: "e3d6f2c902057d4d7de0c2ed74bd2526",
+
+        };
+ </script>
+      <script src="https://webapi.amap.com/maps?v=2.0&key=9c424a08f15c8dc639044754e0872d37"></script>
+
+</head>
+
+<body>
+    <div id="container"></div>
+  <div class='info'>拖动蓝色Marker可调整位置</div>
+   <!-- 创建容器 -->
+ <div id="container"></div> 
+
+   <!-- 判断API是否加载成功 -->
+
+     <!-- <script>
+       console.log(AMap)
+       </script> -->
+
+    <!-- 创建地图对象 -->
+    <script>
+   const map = new AMap.Map('container',{
+
+            center: [102.759293,25.059789], 
+            zoom: 20.015,
+             viewMode: '3D',
+             pitch: 50.155,
+     mapStyle: "amap://styles/white", //设置地图的显示样式
+
+   
+
+});
+
+AMap.plugin(['AMap.ToolBar','AMap.Scale','AMap.ControlBar','AMap.Geolocation','AMap.HawkEye'],function(){
+
+          var toolbar = new AMap.ToolBar({
+
+          position:{
+
+            right:'0px',
+
+            top:'0px'
+
+          }});
+
+          var Scale = new AMap.Scale();      
+
+  var ControlBar = new AMap.ControlBar();         
+
+  var Geolocation = new AMap.Geolocation({
+
+  position:{
+
+            right:'0px',
+
+            top:'90px'
+
+          }});
+
+  var HawkEye = new AMap.HawkEye({ 
+
+  position:{
+
+            right:'0px',
+
+            top:'130px'
+
+          }});
+
+  map.addControl(toolbar);
+
+  map.addControl(Scale);
+
+  map.addControl(ControlBar);
+
+map.addControl(Geolocation);
+map.addControl(HawkEye);
+});
+const position = new AMap.LngLat(102.760119,25.057331); //Marker 经纬度
+const icon = new AMap.Icon({image:'./LuoPicture2.jpg',imageSize:[80,80]});
+const marker = new AMap.Marker({
+position: position,
+icon:icon
+});
+map.add(marker);
+var text = new AMap.Text({
+position: new AMap.LngLat(102.758869,25.059476),
+anchor :'bottom-right',
+text:'西南林业大学',
+style:{'background-color':'pink'},
+});
+map.add(text);
+var text = new AMap.Text({
+position: new AMap.LngLat(102.752626,25.056044),
+anchor :'bottom-right',
+text:'樟苑餐厅',
+style:{'background-color':'pink','font-size':'10px'},
+});
+map.add(text);
+var text = new AMap.Text({
+position: new AMap.LngLat(102.75471,25.056788),
+anchor :'bottom-right',
+text:'土木楼',style:{'background-color':'pink','font-size':'10px'},
+});
+map.add(text);
+var text = new AMap.Text({
+position: new AMap.LngLat(102.757336,25.05685),
+anchor :'bottom-right',
+text:'南图书馆',
+style:{'background-color':'pink','font-size':'10px'},
+});
+map.add(text);
+var text = new AMap.Text({
+position: new AMap.LngLat(102.759016,25.061747),
+anchor :'bottom-right',
+text:'松苑餐厅',
+style:{'background-color':'pink','font-size':'10px'},
+
+
+});
+map.add(text);
+var text = new AMap.Text({
+position: new AMap.LngLat(102.758085,25.062651),
+anchor :'bottom-right',
+text:'竹苑餐厅',
+style:{'background-color':'pink','font-size':'10px'},
+
+});
+map.add(text);
+var text = new AMap.Text({
+position: new AMap.LngLat(102.75582,25.062608),
+anchor :'bottom-right',
+text:'竹苑宿舍',
+style:{'background-color':'pink'},
+});
+map.add(text);
+var text = new AMap.Text({
+position: new AMap.LngLat(102.75582,25.062608),
+anchor :'bottom-right',
+text:'松苑宿舍',
+style:{'background-color':'pink'},
+});
+
+map.add(text);
+var text = new AMap.Text({
+
+position: new AMap.LngLat(102.761076,25.059568),
+
+anchor :'bottom-right',
+
+text:'橡苑宿舍',
+
+style:{'background-color':'pink'},
+});
+
+map.add(text);
+var text = new AMap.Text({
+
+position: new AMap.LngLat(102.76318,25.057428),
+
+anchor :'bottom-right',
+
+text:'橡苑宿舍',
+
+style:{'background-color':'pink'},
+});
+
+map.add(text);
+var text = new AMap.Text({
+
+position: new AMap.LngLat(102.75661,25.057289),
+
+anchor :'bottom-right',
+
+text:'茶苑宿舍',
+
+style:{'background-color':'pink'},
+});
+
+map.add(text);
+var text = new AMap.Text({
+
+position: new AMap.LngLat(102.756577,25.057918),
+
+anchor :'bottom-right',
+
+text:'茶园餐厅',
+
+style:{'background-color':'pink','font-size':'10px'},
+
+
+
+});
+
+map.add(text);
+
+var markersData = [
+
+        {position: [102.758791,25.060332], title: "至真楼", content: '教学楼是学校用于开展教学、讲座及各类团体活动的场所，在非教学时间供学生团体开展活动，并为学生提供学习场地'},
+
+        {position: [102.758869,25.059476], title: "西南林业大学", content: '西南林业大学（Southwest Forestry University），简称西南林大，位于云南省昆明市，为原林业部与地方政府合作共建的首批高校， 是以林学、林业工程、风景园林学为传统优势，生物学、环境科学与工程为显著特色，理、工、农、文、法、管等多学科门类协调发展的全日制普通高等本科'},
+
+        {position: [102.757784,25.062037], title: "标本馆", content:'收藏有植物、脊椎动物、昆虫、木材、植物病理与真菌五大类标本近50余万份，包括部分师生个人收藏和捐赠。对学校教学、科研、对外合作、交流与宣传起到了重要作用。'},
+
+        {position: [102.754979,25.058016], title: "立德楼", content:'在学校分管院长的领导下，为全院教学、科研及广大师生提供良好的环境和后勤保障及服务工作的部门。'},
+
+        {position: [102.760119,25.057331], title: "秋海", content:'秋海的环境优美，书香弥漫，竹影清风，草木欣妍，水天一色。清晨，秋海和西南林业大学的学生一同醒来，晨读声随着风掠过水面，引得细碎的浮光在水面颤动。秋海的环境优美，书香弥漫，竹影清风，草木欣妍，水天一色。清晨，秋海和西南林业大学的学生一同醒来，晨读声随着风掠过水面，引得细碎的浮光在水面颤动。'},
+
+    ];
+
+       
+
+    // 遍历数据添加标记点
+
+    markersData.forEach(function(item) {
+
+        var marker = new AMap.Marker({
+
+            position: item.position,
+
+            title: item.title
+
+        });
+
+
+
+        // 添加点击事件以显示信息窗口
+
+        marker.on('click', function() {
+
+            var infoWindow = new AMap.InfoWindow({
+
+                content: "<div style='width:200px;text-align:center;padding:10px;'>" + item.content + "</div>",
+
+                offset: new AMap.Pixel(0, -30)
+
+            });
+
+            infoWindow.open(map, marker.getPosition());
+
+        });
+
+
+
+        // 将标记点添加到地图上
+
+        map.add(marker);
+
+    });
+
+
+
+
+
+AMap.plugin("AMap.Driving", function () {
+
+var driving = new AMap.Driving({
+
+        map: map,
+
+        policy:3,
+
+    }); 
+
+    // 根据起终点经纬度规划驾车导航路线
+
+    driving.search(new AMap.LngLat(102.752464,25.057828), new AMap.LngLat(102.764138,25.061058),{
+
+        waypoints:[new AMap.LngLat(102.759517,25.059699)]
+
+    }, function(status, result) {
+
+
+
+    });
+
+AMap.plugin("AMap.DragRoute", function () {
+
+  //path 是驾车导航的起、途径和终点，最多支持16个途经点
+
+  var path = [];
+
+  path.push([102.756806,25.059723]);
+
+  path.push([102.760542,25.05835]);
+
+  path.push([102.755756,25.062231]);
+
+  path.push([102.75838,25.06258]);
+
+  path.push([102.762412,25.061366]);
+
+  var route = new AMap.DragRoute(map, path, 0);
+
+  //查询导航路径并开启拖拽导航
+
+  route.search();
+
+});
+
+});
+ </script>   
+</body>
+
+</html>
